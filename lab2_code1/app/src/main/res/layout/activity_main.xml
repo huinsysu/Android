@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.study.android.ahu.experimentone.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:id="@+id/title"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/twenty_margin"
+            android:textSize="@dimen/twenty_textSize"
+            android:textColor="@color/colorBlack" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/sysu"
+            android:contentDescription="@string/description"
+            android:layout_marginTop="@dimen/twenty_margin"
+            android:layout_marginBottom="@dimen/twenty_margin" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twenty_margin"
+            android:layout_marginRight="@dimen/twenty_margin"
+            android:layout_marginBottom="@dimen/twenty_margin"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/ten_margin">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="@string/forUsername"
+                    android:id="@+id/username"
+                    style="@style/label"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editForUsername"
+                    android:textSize="@dimen/eighty_textSize"
+                    android:inputType="text"
+                    android:hint="@string/hintForUsername" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:text="@string/forPassword"
+                    android:id="@+id/password"
+                    style="@style/label"/>
+
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editForPassword"
+                    android:textSize="@dimen/eighty_textSize"
+                    android:inputType="textPassword"
+                    android:hint="@string/hintForPassword"/>
+            </TableRow>
+        </TableLayout>
+
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.08"
+            android:id="@+id/group"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/twenty_margin"
+            android:layout_gravity="center_horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/student"
+                android:checked="true"
+                android:layout_marginEnd="@dimen/ten_margin"
+                android:id="@+id/student"
+                style="@style/radioButton" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/teacher"
+                android:id="@+id/teacher"
+                android:layout_marginEnd="@dimen/ten_margin"
+                style="@style/radioButton" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/organization"
+                android:id="@+id/organization"
+                android:layout_marginEnd="@dimen/ten_margin"
+                style="@style/radioButton" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/manager"
+                android:id="@+id/manager"
+                style="@style/radioButton" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signup"
+                android:id="@+id/button_signup"
+                android:layout_marginEnd="@dimen/five_margin"
+                android:clickable="true"
+                style="@style/myButtonStyle" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signin"
+                android:id="@+id/button_signin"
+                android:layout_marginStart="@dimen/five_margin"
+                android:clickable="true"
+                style="@style/myButtonStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

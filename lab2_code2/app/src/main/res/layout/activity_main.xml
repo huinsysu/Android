@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.study.android.ahu.experimentone.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1">
+
+        <TextView
+            android:text="@string/title"
+            android:id="@+id/title"
+            style="@style/titleStyle" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:src="@mipmap/sysu"
+            android:contentDescription="@string/description"
+            style="@style/imageViewStyle"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginBottom="@dimen/ten_margin"
+            android:id="@+id/username"
+            style="@style/textinput">
+
+            <EditText
+                android:inputType="text"
+                android:hint="@string/hintForUsername"
+                style="@style/edittext"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginBottom="@dimen/twenty_margin"
+            android:id="@+id/password"
+            style="@style/textinput">
+
+            <EditText
+                android:inputType="textPassword"
+                android:hint="@string/hintForPassword"
+                style="@style/edittext"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <RadioGroup
+            android:id="@+id/group"
+            style="@style/radioGroup">
+
+            <RadioButton
+                android:text="@string/student"
+                android:checked="true"
+                android:layout_marginEnd="@dimen/ten_margin"
+                android:id="@+id/student"
+                style="@style/radioButton" />
+
+            <RadioButton
+                android:text="@string/teacher"
+                android:id="@+id/teacher"
+                android:layout_marginEnd="@dimen/ten_margin"
+                style="@style/radioButton" />
+
+            <RadioButton
+                android:text="@string/organization"
+                android:id="@+id/organization"
+                android:layout_marginEnd="@dimen/ten_margin"
+                style="@style/radioButton" />
+
+            <RadioButton
+                android:text="@string/manager"
+                android:id="@+id/manager"
+                style="@style/radioButton" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:text="@string/signup"
+                android:id="@+id/button_signup"
+                android:layout_marginEnd="@dimen/five_margin"
+                style="@style/myButtonStyle" />
+
+            <Button
+                android:text="@string/signin"
+                android:id="@+id/button_signin"
+                android:layout_marginStart="@dimen/five_margin"
+                style="@style/myButtonStyle" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
