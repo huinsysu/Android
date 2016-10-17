@@ -1,0 +1,111 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="circleItemStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/circle_background</item>
+        <item name="android:textSize">@dimen/text_size_twenty_five</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="nameItemStyle">
+        <item name="android:paddingLeft">@dimen/margin_twenty_two</item>
+        <item name="android:textSize">@dimen/text_size_twenty</item>
+        <item name="android:textColor">@color/colotBlack</item>
+    </style>
+
+    <style name="actionStyle">
+        <item name="android:layout_marginLeft">@dimen/margin_twelve</item>
+        <item name="android:layout_marginTop">@dimen/margin_sixteen</item>
+        <item name="android:layout_marginBottom">@dimen/margin_sixteen</item>
+        <item name="android:textSize">@dimen/text_size_eighteen</item>
+        <item name="android:textColor">@color/colotBlack</item>
+    </style>
+
+    <style name="backImageStyle">
+        <item name="android:layout_marginTop">@dimen/margin_twelve</item>
+        <item name="android:layout_marginLeft">@dimen/margin_twelve</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:src">@mipmap/back</item>
+    </style>
+
+    <style name="detailNameStyle">
+        <item name="android:layout_alignLeft">@id/backImage</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">@dimen/margin_twenty_two</item>
+        <item name="android:textSize">@dimen/text_size_twenty_seven</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="starStyle">
+        <item name="android:layout_alignBottom">@id/detailName</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">@dimen/margin_twenty</item>
+    </style>
+
+    <style name="detailPhoneStyle">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_marginTop">@dimen/margin_ten</item>
+        <item name="android:layout_marginLeft">@dimen/margin_twenty</item>
+        <item name="android:layout_marginBottom">@dimen/margin_three</item>
+        <item name="android:textColor">@color/colotBlack</item>
+        <item name="android:textSize">@dimen/text_size_fifteen</item>
+    </style>
+
+    <style name="detailTypeStyle">
+        <item name="android:layout_alignLeft">@id/detailPhone</item>
+        <item name="android:layout_below">@id/detailPhone</item>
+        <item name="android:layout_marginRight">@dimen/margin_ten</item>
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+        <item name="android:textColor">@color/colorLightBlack</item>
+    </style>
+
+    <style name="detailAddressStyle">
+        <item name="android:layout_alignBottom">@id/detailType</item>
+        <item name="android:layout_toRightOf">@id/detailType</item>
+        <item name="android:textSize">@dimen/text_size_sixteen</item>
+        <item name="android:textColor">@color/colorLightBlack</item>
+    </style>
+
+    <style name="messageStyle">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignBottom">@id/detailType</item>
+        <item name="android:layout_marginRight">@dimen/margin_twenty</item>
+        <item name="android:layout_marginLeft">@dimen/margin_twenty</item>
+        <item name="android:src">@mipmap/chat</item>
+    </style>
+
+    <style name="verticalLineStyle">
+        <item name="android:layout_alignBottom">@id/detailType</item>
+        <item name="android:layout_alignTop">@id/message</item>
+        <item name="android:layout_toStartOf">@id/message</item>
+        <item name="android:background">@color/colorGlay</item>
+    </style>
+
+    <style name="lineStyle">
+        <item name="android:layout_marginTop">@dimen/margin_twelve</item>
+        <item name="android:layout_marginLeft">@dimen/margin_ten</item>
+        <item name="android:layout_marginRight">@dimen/margin_ten</item>
+        <item name="android:background">@color/colorGlay</item>
+    </style>
+
+    <style name="tipStyle">
+        <item name="android:layout_marginLeft">@dimen/margin_twelve</item>
+        <item name="android:layout_marginTop">@dimen/margin_twelve</item>
+        <item name="android:textSize">@dimen/text_size_eighteen</item>
+        <item name="android:textColor">@color/colotBlack</item>
+        <item name="android:text">@string/tip</item>
+    </style>
+
+
+
+</resources>
