@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ExperimentFour</string>
+
+    <string name="staticRegister">静态注册</string>
+    <string name="dynamicRegister">动态注册</string>
+
+    <string name="register">Register Broadcast</string>
+    <string name="unRegister">Unregister Broadcast</string>
+    <string name="send">Send</string>
+    <string name="label">DynamicActivity</string>
+    <string name="appwidget_text">Widget</string>
+    <string name="add_widget">Add widget</string>
+
+</resources>
