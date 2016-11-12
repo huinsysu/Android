@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">lab7</string>
+
+    <string name="new_password_hint">New Password</string>
+    <string name="password_hint">Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+
+    <string name="ok_button">OK</string>
+    <string name="clear_button">CLEAR</string>
+    <string name="save_button">SAVE</string>
+    <string name="load_button">LOAD</string>
+</resources>
