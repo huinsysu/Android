@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">lab8</string>
+
+    <string name="buttonText">添加条目</string>
+    <string name="name">姓名</string>
+    <string name="birthday">生日</string>
+    <string name="gift">礼物</string>
+    <string name="edit_name">姓名：</string>
+    <string name="edit_birthday">生日：</string>
+    <string name="edit_gift">礼物：</string>
+    <string name="phone">电话：</string>
+    <string name="create">增加</string>
+    <string name="abandon">放弃修改</string>
+    <string name="confirm">保存修改</string>
+
+</resources>
