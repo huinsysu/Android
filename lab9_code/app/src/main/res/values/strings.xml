@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">exp9</string>
+
+    <string name="title">Welcome to the Weather Search!</string>
+    <string name="city">City name: </string>
+    <string name="button">Search</string>
+
+</resources>
