@@ -1,7 +1,6 @@
 package com.study.android.ahu.exp9;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -11,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,16 +20,13 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -62,9 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView resultFengli;
 
     private ListView detailList;
-    private TextView detailkey;
-    private TextView detailValue;
-
     private RecyclerView recyclerView;
 
     private Handler handler = new Handler() {
@@ -79,9 +72,13 @@ public class MainActivity extends AppCompatActivity {
                             .equals("发现错误：免费用户24小时内访问超过规定数量。http://www.webxml.com.cn/")) {
                         Toast.makeText(MainActivity.this, "免费用户24小时内访问超过规定数量。",
                                 Toast.LENGTH_SHORT).show();
-                    } else if (rcvList.get(0).toString().equals("查询结果为空")) {
+                    } else if (rcvList.get(0).toString().equals("查询结果为空。http://www.webxml.com.cn/") ||
+                            rcvList.get(0).toString().equals("查询结果为空")) {
                         Toast.makeText(MainActivity.this, "当前城市不存在，请重新输入。", Toast.LENGTH_SHORT).show();
-                    } else {
+                    } else if (rcvList.get(0).toString().equals("发现错误：免费用户不能使用高速访问。http://www.webxml.com.cn/")) {
+                        Toast.makeText(MainActivity.this, "免费用户不能使用高速访问。",
+                                Toast.LENGTH_SHORT).show();
+                    } else  {
                         blockTitle.setVisibility(View.VISIBLE);
                         block.setVisibility(View.VISIBLE);
 
@@ -100,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
                             resultFengli.setText("湿度：暂无预报");
                             resultShidu.setText("空气质量：暂无预报");
                             resultAirQuality.setText("风力：暂无预报");
+
+                            data = new ArrayList<>();
+                            SimpleAdapter simpleAdapter = new SimpleAdapter(MainActivity.this, data, R.layout.detail_item,
+                                    new String[]{"key", "value"}, new int[]{R.id.detail_key, R.id.detail_value});
+                            detailList.setAdapter(simpleAdapter);
+
                         } else {
                             String[] allTemperature = info1.split("；");
                             resultCurrentTemperature.setText((allTemperature[0].split("："))[2]);
@@ -160,23 +163,25 @@ public class MainActivity extends AppCompatActivity {
         resultFengli = (TextView) findViewById(R.id.result_fengli);
 
         detailList = (ListView) findViewById(R.id.detail_list);
-        //detailkey = (TextView) findViewById(R.id.detail_key);
-        //detailValue = (TextView) findViewById(R.id.detail_value);
 
         recyclerView = (RecyclerView) findViewById(R.id.weather_horizontal);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-                if (networkInfo != null && networkInfo.isConnected()) {
-                    sendRequestWithHttpURLConnection();
+                if (TextUtils.isEmpty(city.getText().toString())) {
+                    Toast.makeText(MainActivity.this, "城市名不能为空。", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "当前没有网络可用！", Toast.LENGTH_SHORT).show();
+                    ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                    if (networkInfo != null && networkInfo.isConnected()) {
+                        sendRequestWithHttpURLConnection();
+                    } else {
+                        Toast.makeText(MainActivity.this, "当前没有网络可用！", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -198,7 +203,6 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... urls) {
             return downloadUrl(urls[0]);
         }
-
         @Override
         protected void onPostExecute(String result) {
             if (result != null) {
@@ -249,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
             DataOutputStream out = new DataOutputStream(connection.getOutputStream());
             String request = city.getText().toString();
             request = URLEncoder.encode(request, "utf-8");
-//            out.writeBytes("theCityCode=" + request + "&theUserID=");
-            out.writeBytes("theCityCode=" + request + "&theUserID=31c7445c850847b2be51b472d6cad3b9");
+            out.writeBytes("theCityCode=" + request + "&theUserID=");
+//            out.writeBytes("theCityCode=" + request + "&theUserID=31c7445c850847b2be51b472d6cad3b9");
 //            out.writeBytes("theCityCode=" + request + "&theUserID=6d29419b4339467ea35c50f837129ff5");
 
             int responseCode = connection.getResponseCode();
